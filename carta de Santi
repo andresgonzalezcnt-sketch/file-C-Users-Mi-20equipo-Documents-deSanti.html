@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Una Carta Para Ti ❤️</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:linear-gradient(#ffd6e7,#ffeef5);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+}
+
+#carta{
+width:220px;
+height:150px;
+background:#fff;
+border-radius:10px;
+position:relative;
+cursor:pointer;
+box-shadow:0 8px 20px rgba(0,0,0,.2);
+transition:transform .5s;
+}
+
+#carta:before{
+content:"💌";
+font-size:70px;
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+}
+
+#mensaje{
+display:none;
+text-align:center;
+max-width:600px;
+padding:20px;
+animation:aparecer 2s;
+}
+
+h1{
+color:#e91e63;
+}
+
+p{
+font-size:20px;
+color:#444;
+}
+
+.flor{
+position:absolute;
+font-size:30px;
+animation:caer 6s linear infinite;
+}
+
+@keyframes caer{
+0%{transform:translateY(-100px) rotate(0);}
+100%{transform:translateY(110vh) rotate(360deg);}
+}
+
+@keyframes aparecer{
+from{opacity:0;transform:scale(.7);}
+to{opacity:1;transform:scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<div id="carta"></div>
+
+<div id="mensaje">
+<h1>❤️ Para Ti ❤️</h1>
+<p>
+Hay personas que llegan a nuestra vida y la hacen más bonita con solo existir.
+Espero que cada sonrisa ilumine tus días y que nunca olvides lo especial que eres.
+Gracias por ser una inspiración y por hacer que el mundo tenga un poquito más de alegría.
+🌹✨
+</p>
+</div>
+
+<script>
+const carta=document.getElementById("carta");
+const mensaje=document.getElementById("mensaje");
+
+carta.onclick=()=>{
+carta.style.display="none";
+mensaje.style.display="block";
+
+for(let i=0;i<40;i++){
+let flor=document.createElement("div");
+flor.className="flor";
+flor.innerHTML=["🌹","🌸","🌺","🌷"][Math.floor(Math.random()*4)];
+flor.style.left=Math.random()*100+"vw";
+flor.style.animationDuration=(3+Math.random()*4)+"s";
+document.body.appendChild(flor);
+}
+};
+</script>
+
+</body>
+</html>
